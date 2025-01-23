@@ -15,37 +15,44 @@ class CustomGridViewItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         border: Border.all(color: Colors.blue, width: 1.5),
       ),
-      child: Stack(
-        children: [
-          const Positioned(
-            top: 0,
-            right: 0,
-            child: CircleAvatar(
-              backgroundColor: Colors.white,
-              child: Icon(
-                Icons.favorite_border,
-                color: Colors.blue,
-              ),
+      child: Stack(children: [
+        const Positioned(
+          top: 0,
+          right: 0,
+          child: CircleAvatar(
+            backgroundColor: Colors.white,
+            child: Icon(
+              Icons.favorite_border,
+              color: Colors.blue,
             ),
           ),
-          Positioned.fill(child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Image.asset(AssetsRes.TEST),
-              const Text("Nike Air Jordon"),
-              const Text("Nike shoes flexible for woman lcalkqcqccqcdcdqqccq",maxLines: 1, overflow: TextOverflow.ellipsis,),
-              const Text("1,200"),
-              const Row(
-                children: [
+        ),
+        Positioned.fill(
+            child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image.asset(AssetsRes.TEST),
+            const Text("Nike Air Jordon"),
+            const Text(
+              "Nike shoes flexible for woman lcalkqcqccqcdcdqqccq",
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+            const Text("1,200"),
+            const Row(
+              children: [
                 CustomRatingWidget(),
                 Spacer(),
-                Icon(FontAwesomeIcons.circlePlus,color: Colors.blue,size: 25,)
-              ],)
-
-            ],
-          ))
-        ]
-      ),
+                Icon(
+                  FontAwesomeIcons.circlePlus,
+                  color: Colors.blue,
+                  size: 25,
+                )
+              ],
+            )
+          ],
+        ))
+      ]),
     );
   }
 }
