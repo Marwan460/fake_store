@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomRatingWidget extends StatelessWidget {
-  const CustomRatingWidget({super.key});
+  final String rating;
+  const CustomRatingWidget({super.key, required this.rating});
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +13,8 @@ class CustomRatingWidget extends StatelessWidget {
           "Review",
         ),
         const SizedBox(width: 9),
-        const Text(
-          "(4.6)",
+        Text(
+          rating,
         ),
         Icon(FontAwesomeIcons.solidStar, color: Colors.yellow.shade700),
       ],
