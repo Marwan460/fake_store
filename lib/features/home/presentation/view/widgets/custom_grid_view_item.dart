@@ -20,7 +20,7 @@ class CustomGridViewItem extends StatelessWidget {
         Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-        Image.network(productModel.image!,height: 90,),
+        Image.network(productModel.image!,height: 90,fit: BoxFit.contain,),
         Text(productModel.title!,maxLines: 1, overflow: TextOverflow.ellipsis,),
         Text(
           productModel.description!,
