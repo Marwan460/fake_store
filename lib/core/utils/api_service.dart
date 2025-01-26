@@ -1,13 +1,20 @@
-import 'package:dio/dio.dart';
+import 'dart:convert';
+import 'package:fake_store/features/home/data/models/data_model/product_model.dart';
+import 'package:http/http.dart' as http;
+
 
 class ApiService {
-  final baseUrl = "https://fakestoreapi.com/products";
-  final Dio dio;
+  final _baseUrl = "https://fakestoreapi.com/products";
 
-  ApiService(this.dio);
+  Future<List<ProductModel>> getProduct() async{
+    http.Response response = await http.get(Uri.parse(_baseUrl));
+    List<dynamic> data = jsonDecode(response.body);
 
-  Future<Map<String, dynamic>> get({required String endPoint}) async{
-    var response = await dio.get('$baseUrl$endPoint');
-    return response.data;
+    List<ProductModel> productsList = [];
+
+    for(int i = 0; i < data.length; i++){
+      productsList.add(ProductModel.fromJson(data[i]));
+    }
+    return productsList;
   }
 }
